@@ -29,7 +29,7 @@
             <input
                 type="email" name="email"
                 class="form-control mb-2"
-                placeholder="Email" required
+                placeholder="Email" required 
             >
             <input
                 type="password" name="password"
@@ -42,7 +42,7 @@
             </button>
         </form>
         <br>
-        <a href="register.php">Register</a>
+        <a href="register.php" class="text-decoration-none">Register</a>
     </div>
 </body>
 </html>
