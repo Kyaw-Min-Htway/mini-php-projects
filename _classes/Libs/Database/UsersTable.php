@@ -2,6 +2,7 @@
 
 namespace Libs\Database;
 
+
 use PDOException;
 
 class UsersTable 
@@ -30,7 +31,7 @@ class UsersTable
 
             return $this->db->lastInsertId();
         }catch (PDOException $e) {
-            return $e->getMessage()();
+            return $e->getMessage();
         }
     }
 
@@ -45,3 +46,5 @@ class UsersTable
         return $statement->fetchAll();
     }
 }
+
+?>
