@@ -89,10 +89,9 @@ $auth = Auth::check();
                                 <?php if($user->suspended): ?>
                                     <a href="_actions/unsuspend.php?id=<?= $user->id?>"
                                         class="btn btn-sm btn-danger">Suspended
-                                    
                                     </a>
                                 <?php else: ?>
-                                    <a href="_actions/Suspened?id=<? $user->id ?>"
+                                    <a href="_actions/suspened.php?id=<? $user->id ?>"
                                         class="btn btn-sm btn-outline-success"
                                     >Active</a>
                                 <?php endif ?>

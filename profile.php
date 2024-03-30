@@ -53,8 +53,8 @@ $auth = Auth::check();
             </li>
         </ul>
         <br>
-        <a href="admin.php">Manage Users</a>
-        <a href="_actions/logout.php" class="text-danger">Logout</a>
+        <a href="admin.php" class="btn btn-outline-primary">Manage Users</a>
+        <a href="_actions/logout.php" class="btn btn-outline-danger">Logout</a>
     </div>
 </body>
 </html>
