@@ -22,7 +22,7 @@ class UsersTable
                     password, role_id, created_at 
                     ) VALUES (
                             :name, :email, :phone, :address,
-                            password, role_id, Now()
+                            :password, :role_id, Now()
                         )
             ";
 
@@ -71,6 +71,49 @@ class UsersTable
             UPDATE users SET photo=:name WHERE id = :id
         ");
         $statement->execute([":name" => $name, ":id" => $id ]);
+        return $statement->rowCount();
+    }
+
+    public function suspended($id)
+    {
+        $statement = $this->db->prepare("
+            UPDATE users SET suspended=1 WHERE id = :id
+        ");
+
+        $statement->execute([':id' => $id]);
+
+
+        return $statement->rowCount();
+    }
+
+    public function unsuspended($id)
+    {
+        $statement = $this->db->prepare("
+            UPDATE users SET suspended=0 WHERE id = :id
+        ");
+
+        $statement->execute([':id' => $id ]);
+
+        return $statement->rowCount();
+    }
+
+    public function changeRole($id, $role)
+    {
+        $statement = $this->db->prepare("
+            UPDATE users SET role_id = :role WHERE id = :id 
+        ");
+
+        $statement->execute([':id' => $id, ':role' => $role ]);
+    }
+
+    public function delete($id)
+    {
+        $statement = $this->db->prepare("
+            DELETE FROM users WHERE id = :id
+        ");
+
+        $statement->execute([":id" => $id ]);
+
         return $statement->rowCount();
     }
 }

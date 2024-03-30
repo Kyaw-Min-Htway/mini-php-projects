@@ -15,6 +15,7 @@ $data = [
     "role_id" => 1,
 ];
 
+
 $table = new UsersTable(new MySQL());
 
 if($table) {
