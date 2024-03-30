@@ -39,7 +39,7 @@
                 Register
                 </button>
         </form>
-        <a href="index.php">Login</a>
+        <a href="index.php" class="text-decoration-none">Login</a>
     </div>
 </body>
 </html>

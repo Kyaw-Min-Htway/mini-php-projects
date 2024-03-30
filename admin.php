@@ -23,9 +23,9 @@ $auth = Auth::check();
 </head>
 <body>
     <div class="container">
-        <div class="" style="float: right;">
-        <a href="profile.php">Profile</a>
-        <a href="_actions/logout.php" class="text-danger">Logout</a>
+        <div class="" style="float: right">
+            <a href="profile.php" class="btn btn-outline-primary">Profile</a>
+            <a href="_actions/logout.php" class="btn btn-outline-danger">Logout</a>
         </div>
         <h1 class="mt-5 mb-5">
             Manage Users
@@ -33,7 +33,7 @@ $auth = Auth::check();
                 <?= count($all) ?>
              </span>
         </h1>
-        <table class="table-striped table-bordered">
+        <table class="table table-striped table-bordered text-center">
             <tr>
                 <th>
                     ID
@@ -61,11 +61,11 @@ $auth = Auth::check();
                     <td><?= $user->email ?></td>
                     <td><?= $user->phone ?></td>
                     <td>
-                        <?php if($user->value === "1"): ?>
+                        <?php if($user->role_id === 1): ?>
                             <span class="badge bg-secondary">
                                 <?= $user->role ?>
                             </span>
-                        <?php elseif($user->value === "2"): ?>
+                        <?php elseif($user->role_id === 2): ?>
                             <span class="badge bg-primary">
                                 <?= $user->role ?>
                             </span>
@@ -78,13 +78,13 @@ $auth = Auth::check();
                     <td>
                         <?php if($auth->value > 1): ?>
                             <div class="btn-group dropdown">
-                                <a href="#" class="btn btn-sm btn-outline-primary dropdown-toggle">
+                                <a href="#" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
                                     Change Role
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-dark">
                                     <a href="_action/role.php?id=<?= $user->id ?>&role=1" class="dropdown-item">User</a>
-                                    <a href="_action/role.php?id=<?= $user->id ?>&role=2" class="dropdown-item">User</a>
-                                    <a href="_action/role.php?id=<?= $user->id ?>&role=3" class="dropdown-item">User</a>
+                                    <a href="_action/role.php?id=<?= $user->id ?>&role=2" class="dropdown-item">Manager</a>
+                                    <a href="_action/role.php?id=<?= $user->id ?>&role=3" class="dropdown-item">Admin</a>
                                 </div>
                                 <?php if($user->suspended): ?>
                                     <a href="_actions/unsuspend.php?id=<?= $user->id?>"
@@ -106,6 +106,7 @@ $auth = Auth::check();
 
                             </div>
                             <?php else: ?>
+                                ###
                             <?php endif ?>
                     </td>
                 </tr>
