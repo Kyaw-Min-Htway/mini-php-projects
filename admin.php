@@ -87,11 +87,11 @@ $auth = Auth::check();
                                     <a href="_action/role.php?id=<?= $user->id ?>&role=3" class="dropdown-item">Admin</a>
                                 </div>
                                 <?php if($user->suspended): ?>
-                                    <a href="_actions/unsuspend.php?id=<?= $user->id?>"
+                                    <a href="_actions/unsuspend.php?id=<?= $user->id ?>"
                                         class="btn btn-sm btn-danger">Suspended
                                     </a>
                                 <?php else: ?>
-                                    <a href="_actions/suspened.php?id=<? $user->id ?>"
+                                    <a href="_actions/suspend.php?id=<?= $user->id ?>"
                                         class="btn btn-sm btn-outline-success"
                                     >Active</a>
                                 <?php endif ?>
@@ -99,7 +99,7 @@ $auth = Auth::check();
                                 <?php if($user->id !== $auth->id): ?>
                                     <a href="_actions/delete.php?id=<?= $user->id ?>" 
                                     class="btn btn-sm btn-outline-danger"
-                                    onclick="return confirm('Are you sure?')"
+                                    onClick="return confirm('Are you sure?')"
                                     >Delete</a>
                                 <?php endif ?>
 
