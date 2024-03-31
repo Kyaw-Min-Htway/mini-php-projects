@@ -76,15 +76,16 @@ $auth = Auth::check();
                         <?php endif ?>
                     </td>
                     <td>
-                        <?php if($auth->value > 1): ?>
+                        <?php if($auth->value > 1 ): ?>
+                        <?php if($user->id !== $auth->id): ?>
                             <div class="btn-group dropdown">
                                 <a href="#" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
                                     Change Role
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-dark">
-                                    <a href="_action/role.php?id=<?= $user->id ?>&role=1" class="dropdown-item">User</a>
-                                    <a href="_action/role.php?id=<?= $user->id ?>&role=2" class="dropdown-item">Manager</a>
-                                    <a href="_action/role.php?id=<?= $user->id ?>&role=3" class="dropdown-item">Admin</a>
+                                    <a href="_actions/role.php?id=<?= $user->id ?>&role=1" class="dropdown-item">User</a>
+                                    <a href="_actions/role.php?id=<?= $user->id ?>&role=2" class="dropdown-item">Manager</a>
+                                    <a href="_actions/role.php?id=<?= $user->id ?>&role=3" class="dropdown-item">Admin</a>
                                 </div>
                                 <?php if($user->suspended): ?>
                                     <a href="_actions/unsuspend.php?id=<?= $user->id ?>"
@@ -95,7 +96,7 @@ $auth = Auth::check();
                                         class="btn btn-sm btn-outline-success"
                                     >Active</a>
                                 <?php endif ?>
-
+                            <?php endif ?>
                                 <?php if($user->id !== $auth->id): ?>
                                     <a href="_actions/delete.php?id=<?= $user->id ?>" 
                                     class="btn btn-sm btn-outline-danger"
