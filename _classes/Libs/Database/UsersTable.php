@@ -54,6 +54,7 @@ class UsersTable
         return $row ?? false;
     }
 
+
     public function getAll()
     {
         $statement = $this->db->query("
